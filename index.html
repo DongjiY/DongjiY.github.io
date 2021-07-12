@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
+        <link rel="stylesheet" href="indexstyle.css">
+        <title>Home - Dongji Yang</title>
+    </head>
+    
+    <body>
+        <nav>
+            <ul class="nav-links">
+                <li><a class="nav-links-li" href="index.html">Home</a></li>
+                <li><a class="nav-links-li" href="#aboutme">About</a></li>
+                <li><a class="nav-links-li" href="#proj">Projects</a></li>
+                <li><a class="nav-links-li" href="#contact">Contact</a></li>
+            </ul>
+        </nav>
+        
+        <div class="introwrapper">
+            <h1 class="first">DONGJI</h1>
+            <h1 class="second">YANG</h1>
+            <div class="innerwrapper">
+                <h2 class="third">A computer scientist who knows how to shower.</h2>
+                <a href="#" class="button"><span>Explore</span></a>
+            </div>
+        </div>
+        
+        <div class="projects" id="proj">
+            <h1>Projects:</h1>
+            <br>
+            <h2>Data Processing for UT Southwestern</h2>
+            <p>I created a program for the HHMI (Harvard Hughes Medical Institute) lab at UT Southwestern to read in rdna data in the form of CSV files using Java which would scrub the data and perform the desired calculations to streamline the work of cell researchers. To learn more, visit my github linked below.</p>
+            <br>
+            <a class="smallbutton" href="#">Learn More</a>
+            <br><br>
+            <h2>Local Weather Web Scraper</h2>
+            <p>Using python backend with the beautifulsoup4 library, mysql, and PHP, I created a full stack implementation of a web scraper that gathers local weather data before storing and organizing it in an Amazon web services sql server and using php to display it into an organized and readable format on a website. To learn more, click the button below.</p>
+            <br>
+            <a class="smallbutton" href="#">Learn More</a>
+            <br><br>
+            <h2>Year In Pixels</h2>
+            <p>Using a mySql database, Javascript, PHP, and Ajax, I created an interactive webpage that stores user inputs on their day and implements a login system. Additionally, users are able to add notes to record the events that occurred each day. To learn more, click the button below.</p>
+            <br>
+            <a class="smallbutton" href="#">Learn More</a>
+            <br><br>
+        </div>
+        
+        <div class="projects" id="aboutme">
+            <div style="margin-bottom: 15px; margin-left: 0px;">
+                <h1>About Me:</h1>
+            </div>
+            
+            <div class="abtwrapper">
+                <div id="interests">
+                    <h2>Interests:</h2>
+                    <p>Apart from spending an exorbitant amount of time scrolling through TikTok, I enjoy losing money in high stakes Texas Hold'Em, walking my chubby chihuahua, and playing viola. Some of my hobbies include collecting Lego Star Wars sets and upgrading my PC parts.</p>
+                </div>
+
+                <div id="academics">
+                    <h2>Academics:</h2>
+                    <p>Relevant Coursework I've taken includes:</p>
+                    <br>
+                    <p style="color: #fdbb6d;">CS23337 (Data Structures)</p>
+                    <br>
+                    <p style="color: #fdbb6d;">CS2305/3305 (Discrete Math I & II)</p>
+                    <br>
+                    <p style="color: #fdbb6d;">CS3377 (Programming in UNIX)</p>
+                    <br>
+                    <p style="color: #fdbb6d;">CS3345 (Prob & Stats in CS)</p>
+                </div>
+
+                <div id="experience">
+                    <h2>Experience:</h2>
+                    <p>Since May of 2021, I have been a Software Developer Intern at Gentrifi GPS working on integrating vehicle telemetrics data to a centralized platform. In doing so, I've had experience with REST APIs, Jakarta Servlets, and full stack web/app development.</p>
+                </div>
+            </div>
+
+        </div>
+
+        <div class="projects" id="contact">
+            <form>
+                <section>
+                    <form>
+                      <label>
+                        <input name="name" id="name" type="text" required />
+                        <div class="label-text">Full Name</div>
+                      </label>
+                      <label>
+                        <input type="email" name="email" id="email" required />
+                        <div class="label-text">Email</div>
+                      </label>
+                      <label>
+                        <input type="tel" name="phone" id="phone" required />
+                        <div class="label-text">Phone Number</div>
+                      </label>
+                      <button type="submit" value="Submit">Submit</button>
+                    </form>
+                  </section>
+            </form>
+        </div>
+        
+        <div class="footer">
+            <p>Made With Love 🧡 | Dongji Yang | <a href="https://github.com/DongjiY">Github</a> | <a href="https://www.linkedin.com/in/dongjiyang/">LinkedIn</a></p>
+        </div>
+    </body>
+</html>
