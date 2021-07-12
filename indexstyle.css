@@ -152,6 +152,18 @@ a.smallbutton:hover{
 }
 #aboutme{
     margin-top: 75px;
+    animation-name: aboutslide;
+    animation-duration: 1.5s;
+}
+@keyframes aboutslide{
+    from{
+        margin-left: 100%;
+        width: 90%;
+    }
+    to{
+        margin-left: 5%;
+        width: 90%;
+    }
 }
 #aboutme .abtwrapper{
     display: flex;
