@@ -11,6 +11,7 @@
 }
 html{
     scroll-behavior: smooth;
+    overflow-x: hidden;
 }
 body{
     background-color: var(--black);
@@ -135,42 +136,44 @@ a.smallbutton:hover{
     color:#000000;
     background-color:#FFFFFF;
 }
+#proj{
+    animation-name: projslide;
+    animation-duration: 3s;
+}
+@keyframes projslide{
+    from{
+        margin-left: -100%;
+        width: 100%;
+    }
+    to{
+        margin-left: 0%;
+        width: 100%;
+    }
+}
 #aboutme{
     margin-top: 75px;
 }
-
 #aboutme .abtwrapper{
     display: flex;
     justify-content: space-evenly;
     margin: 0px 0px 0px 0px;
 }
-
 #aboutme p{
     font-size: 1.05vw;
 }
-/* #aboutme img{
-    width: 100%;
-    height: 100%;
-    margin-right: 0;
-    object-fit: cover;
-    overflow: hidden;
-    border-radius: 50%;
-} */
-/* .gridwrapper{
-    margin: 0;
-    display: flex;
-} */
 .projects #interests{
-    width: 30%;
+    width: 33%;
     height: 100%;
+    margin-right: 0px;
 }
 .projects #academics{
-    width: 40%;
+    width: 38%;
     height: 100%;
 }
 .projects #experience{
-    width: 30%;
+    width: 33%;
     height: 100%;
+    margin-left: 0px;
 }
 #contact{
     margin-top: 75px;
@@ -259,7 +262,19 @@ button:hover, button:focus {
 .footer a{
     margin: 0px;
 }
-
+/* p:hover {
+    color: transparent;
+    background-image: linear-gradient(to right,#eee 0%, var(--blackish) 120%);
+    animation: color-change 5s linear infinite;
+}
+@keyframes color-change {
+    0% { color: orange; }
+    20% { color: #fd7f2c; }
+    40% { color: #fd9346; }
+    60% { color: #fda766; }
+    80% {  color: #fdb777; }
+    100% { color: #eee; }
+} */
 @media (max-width: 1000px) {
     body {
         background-color: lightblue;
