@@ -138,16 +138,16 @@ a.smallbutton:hover{
 }
 #proj{
     animation-name: projslide;
-    animation-duration: 3s;
+    animation-duration: 1.5s;
 }
 @keyframes projslide{
     from{
         margin-left: -100%;
-        width: 100%;
+        width: 90%;
     }
     to{
-        margin-left: 0%;
-        width: 100%;
+        margin-left: 5%;
+        width: 90%;
     }
 }
 #aboutme{
