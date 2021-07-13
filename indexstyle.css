@@ -1,7 +1,8 @@
 :root{
-    --black: black;
-    --blackish: #333;
-    --blue: lightblue;
+    --bg: lightblue;
+    --bglish: #333;
+    --whiteish: #eee;
+    --txt: black;
 }
 *{
     margin: 0 5% 0 5%;
@@ -14,7 +15,7 @@ html{
     overflow-x: hidden;
 }
 body{
-    background-color: var(--black);
+    background-color: var(--bg);
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -49,6 +50,7 @@ a{
 }
 h1{
     font-size: 5rem;
+    color: var(--txt);
 }
 .first{
     color: orange;
@@ -56,7 +58,7 @@ h1{
 }
 .second{
     margin-left: 5px;
-    background: linear-gradient(to right,#eee 0%, var(--blackish) 120%);
+    background: white;
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
@@ -87,6 +89,7 @@ h1{
 a span{
     position: relative;
     z-index: 2;
+    color: var(--bglish);
 }
 .button:after{
     position: absolute;
@@ -106,7 +109,7 @@ a span{
 }
 .projects{
     padding: 30px 25px 30px 25px;
-    background-color: #333333;
+    background-color: var(--whiteish);
     color: white;
     border-radius: 10px;
 }
@@ -119,16 +122,17 @@ a span{
 }
 .projects p{
     font-size: 20px;
+    color: var(--txt);
 }
 a.smallbutton{
     display:inline-block;
     padding:0.35em 1.2em;
-    border:0.1em solid #FFFFFF;
+    border:0.1em solid var(--txt);
     border-radius:0.12em;
     box-sizing: border-box;
     text-decoration:none;
     font-weight:300;
-    color:#FFFFFF;
+    color: var(--txt);
     text-align:center;
     transition: all 0.2s;
 }
@@ -192,7 +196,7 @@ a.smallbutton:hover{
 }
 #contact form {
     text-align: center;
-    border: 1px solid #4A4A4A;
+    border: 1px solid var(--txt);
     padding: 30px;
     margin: 0px 0px 0px 0px;
 }
@@ -203,7 +207,7 @@ label {
     text-align: center;
 }
 label .label-text {
-    color: #9B9B9B;
+    color: var(--txt);
     cursor: text;
     font-size: 15px;
     line-height: 20px;
@@ -217,22 +221,22 @@ label .label-text {
 label input {
     background-color: transparent;
     border: 0;
-    border-bottom: 2px solid #4A4A4A;
-    color: white;
+    border-bottom: 2px solid var(--txt);
+    color: var(--txt);
     font-size: 20px;
     letter-spacing: 1px;
     outline: 0;
     padding: 5px 20px;
     text-align: center;
     transition: all 0.3s;
-    width: 200px;
+    width: 300px;
 }
 label input:focus {
     max-width: 100%;
     width: 400px;
 }
-label input:focus + .label-text {
-    color: #F0F0F0;
+label input:focus + .label-text  {
+    color: orange;
     font-size: 13px;
     margin-top: 10px;
     -moz-transform: translateY(-74px);
@@ -242,25 +246,27 @@ label input:focus + .label-text {
 }
 label input:valid + .label-text {
     font-size: 13px;
-    -moz-transform: translateY(-74px);
-    -ms-transform: translateY(-74px);
-    -webkit-transform: translateY(-74px);
-    transform: translateY(-74px);
+    color: #90ee90;
+    -moz-transform: translateY(-60px);
+    -ms-transform: translateY(-60px);
+    -webkit-transform: translateY(-60px);
+    transform: translateY(-60px);
 }
 button {
     background: transparent;
-    color: #F0F0F0;
-    border: 2px solid #F0F0F0;
+    color: var(--txt);
+    border: 2px solid var(--txt);
     font-size: 15px;
     letter-spacing: 2px;
     padding: 15px 30px;
     text-transform: uppercase;
     cursor: pointer;
     display: inline-block;
-    margin: 15px 30px;
+    margin: 30px 30px 15px 30px;
     -webkit-transition: all 0.4s;
     -moz-transition: all 0.4s;
     transition: all 0.4s;
+    /*! margin-top: 15px; */
 }
 button:hover, button:focus {
     background-color: white;
@@ -274,34 +280,29 @@ button:hover, button:focus {
 .footer a{
     margin: 0px;
 }
-/* p:hover {
-    color: transparent;
-    background-image: linear-gradient(to right,#eee 0%, var(--blackish) 120%);
-    animation: color-change 5s linear infinite;
-}
-@keyframes color-change {
-    0% { color: orange; }
-    20% { color: #fd7f2c; }
-    40% { color: #fd9346; }
-    60% { color: #fda766; }
-    80% {  color: #fdb777; }
-    100% { color: #eee; }
-} */
-@media (max-width: 1000px) {
-    body {
-        background-color: lightblue;
+
+@media (prefers-color-scheme: dark){
+    :root{
+        --bg: black;
+        --txt: white;
     }
-    .projects{
-        background: #424549;
-    }
-    a span{
-        color: #333;
+    p, h1{
+        color: var(--txt);
     }
     .second{
-        background: linear-gradient(to right,#eee 0%, #eee 120%);
+        background: linear-gradient(to right,#eee 0%, var(--bglish) 120%);
         -webkit-background-clip: text;
         -webkit-text-fill-color: transparent;
     }
+    a span{
+        color: #eee;
+    }
+    .projects{
+        background: var(--bglish);
+    }
+}
+
+@media (max-width: 1000px) {
     .abtwrapper{
         flex-direction: column;
     }
