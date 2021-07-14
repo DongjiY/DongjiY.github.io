@@ -43,10 +43,33 @@ a{
     text-decoration: none;
     color: #eee;
 }
+img{
+    position: absolute;
+    z-index: 10;
+    width: 29%;
+    top: 10%;
+    animation: 60s linear infinite;
+    animation-name: cloudslide;
+    pointer-events: none;
+    user-select: none;
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    -webkit-user-select: none;
+    -o-user-select: none;
+}
+@keyframes cloudslide{
+    from{
+        margin-left: 100%;
+    }
+    to{
+        margin-left: -100%;
+    }
+}
 .introwrapper{
     margin: 10% 0% 10% 0%;
     display: flex;
     flex-wrap: wrap;
+    z-index: 15;
 }
 h1{
     font-size: 5rem;
@@ -286,6 +309,9 @@ button:hover, button:focus {
         --bg: black;
         --txt: white;
     }
+    img{
+        display: none;
+    }
     p, h1{
         color: var(--txt);
     }
@@ -303,6 +329,9 @@ button:hover, button:focus {
 }
 
 @media (max-width: 1000px) {
+    img{
+        display: none;
+    }
     .abtwrapper{
         flex-direction: column;
     }
