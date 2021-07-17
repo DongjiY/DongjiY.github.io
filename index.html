@@ -25,7 +25,7 @@
             <h1 class="second">YANG</h1>
             <div class="innerwrapper">
                 <h2 class="third">A computer scientist who knows how to shower.</h2>
-                <a href="#" class="button"><span>Explore</span></a>
+                <a onclick="inProg3()" href="#" class="button"><span>Explore</span></a>
             </div>
         </div>
         
@@ -99,7 +99,7 @@
                             <div class="label-text">Phone Number</div>
                         </label>
                         
-                        <button type="submit" value="Submit">Submit</button>
+                        <button onclick="inProg2()" type="submit" value="Submit">Submit</button>
                     </form>
                 </section>
             </form>
@@ -112,6 +112,12 @@
         <script type="text/javascript">
             function inProg(){
                 alert("Uh Oh! This page is under construction... Sorry!");    
+            }
+            function inProg2(){
+                alert("Well... this is embarassing, but the form doesn't do anything yet :(");
+            }
+            function inProg3(){
+                alert("Hi! I'm currently working on migrating to my own web server so lots of things aren't functional just yet. Sorry about that!");
             }
         </script>
     </body>
