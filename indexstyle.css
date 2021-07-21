@@ -36,6 +36,9 @@ nav{
     justify-content: center;
     align-items: center;
 }
+.swal2-x-mark, .swal2-x-mark-line-left, .swal2-x-mark-line-right{
+    margin: 0px !important;
+}
 a:hover{
     color: orange;
 }

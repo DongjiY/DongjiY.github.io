@@ -6,9 +6,28 @@
         <link href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet"> 
         <link rel="stylesheet" href="indexstyle.css">
         <title>Home - Dongji Yang</title>
+        
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <link rel="stylesheet" href="sweetalert2/dist/sweetalert2.css">
+        <!-- <link rel="stylesheet" href="@sweetalert2/theme-dark/dark.css"> -->
+
+        <script type="module">
+        import Swal from 'sweetalert2/src/sweetalert2.js'
+        </script>
     </head>
     
     <body>
+
+        <script type="text/javascript">
+            Swal.fire({
+                title: "Notice",
+                text: "I'm currently working on migrating to an Apache Web Server to host my projects. Sorry for the delay!",
+                icon: "warning",
+                confirmButtonText: "Got it!",
+                confirmButtonColor: "orange"
+            });
+        </script>
+
         <nav>
             <ul class="nav-links">
                 <li><a class="nav-links-li" href="index.html">Home</a></li>
@@ -25,7 +44,7 @@
             <h1 class="second">YANG</h1>
             <div class="innerwrapper">
                 <h2 class="third">A computer scientist who knows how to shower.</h2>
-                <a onclick="inProg3()" href="#" class="button"><span>Explore</span></a>
+                <a onclick="inProg()" href="#" class="button"><span>Explore</span></a>
             </div>
         </div>
         
@@ -99,7 +118,7 @@
                             <div class="label-text">Phone Number</div>
                         </label>
                         
-                        <button onclick="inProg2()" type="submit" value="Submit">Submit</button>
+                        <button onclick="formSuccess()" type="submit" value="Submit">Submit</button>
                     </form>
                 </section>
             </form>
@@ -111,14 +130,15 @@
         
         <script type="text/javascript">
             function inProg(){
-                alert("Uh Oh! This page is under construction... Sorry!");    
+                Swal.fire({
+                    title: "Oops",
+                    text: "This feature is not yet available due to the web server migration. Thanks for your patience!",
+                    icon: "error",
+                    confirmButtonText: "No problem, boss!",
+                    confirmButtonColor: "orange"
+                });   
             }
-            function inProg2(){
-                alert("Well... this is embarassing, but the form doesn't do anything yet :(");
-            }
-            function inProg3(){
-                alert("Hi! I'm currently working on migrating to my own web server so lots of things aren't functional just yet. Sorry about that!");
-            }
+            
         </script>
     </body>
 </html>
