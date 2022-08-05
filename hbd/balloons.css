@@ -24,7 +24,7 @@ body {
         flex-wrap: wrap;
         overflow: hidden;
         position: absolute;
-        animation: sendBack 12s linear forwards;
+        animation: sendBack 20s linear forwards;
     }
 }
 
