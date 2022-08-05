@@ -10,6 +10,7 @@ body {
     flex-wrap: wrap;
     overflow: hidden;
     position: absolute;
+    animation: sendBack 12s linear forwards;
 }
 
 @media only screen and (max-width: 700px){
@@ -23,6 +24,7 @@ body {
         flex-wrap: wrap;
         overflow: hidden;
         position: absolute;
+        animation: sendBack 12s linear forwards;
     }
 }
 
@@ -67,5 +69,14 @@ body {
     to {
         transform: translateY(-300vh);
         opacity: 0;
+    }
+}
+
+@keyframes sendBack {
+    from {
+        z-index: inherit;
+    }
+    to {
+        z-index: -5;
     }
 }
