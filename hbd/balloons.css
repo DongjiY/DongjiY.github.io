@@ -13,7 +13,7 @@ body {
     animation: sendBack 12s linear forwards;
 }
 
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 900px){
     #balloon-container {
         height: auto;
         top: 0;
