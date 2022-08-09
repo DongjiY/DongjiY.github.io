@@ -10,10 +10,10 @@ body {
     flex-wrap: wrap;
     overflow: hidden;
     position: absolute;
-    animation: sendBack 12s linear forwards;
+    /* animation: sendBack 12s linear forwards; */
 }
 
-@media only screen and (max-width: 700px){
+/* @media only screen and (max-width: 900px){
     #balloon-container {
         height: auto;
         top: 0;
@@ -26,7 +26,7 @@ body {
         position: absolute;
         animation: sendBack 20s linear forwards;
     }
-}
+} */
 
 .balloon {
     height: 125px;
