@@ -1,6 +1,6 @@
 .swipeable-background {
   background: red;
-  width: 500px;
+  width: 100%;
   overflow-x: hidden;
   display: flex;
 }

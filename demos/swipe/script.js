@@ -1,4 +1,4 @@
-const MAX_EXPANDED = -200; // in px
+const MAX_EXPANDED = -500; // in px
 const MIN_EXPANDED = 0;
 const RESISTANCE_FACTOR = 0.1; // smaller number means you have to drag further to open/close and vice versa
 
