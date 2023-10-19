@@ -1,0 +1,20 @@
+<html>
+  <head>
+    <script src="./script.js"></script>
+    <link rel="stylesheet" type="text/css" href="./styles.css"></link>
+  </head>
+
+  <body>
+    <div 
+        class="swipeable-background" 
+        ontouchmove="handleTouchMove(event)" 
+        ontouchstart="handleTouchStart(event)" 
+        ontouchend="snapToBoundingBox(event)" 
+        id="wrapper"
+    >
+        <div class="swipeable">
+            <p class="swipeable-content">Touch and move me</p>
+        </div>    
+    </div>
+  </body>
+</html>
