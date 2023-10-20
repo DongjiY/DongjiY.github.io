@@ -1,8 +1,9 @@
 const MAX_EXPANDED = -500; // in px
 const MIN_EXPANDED = 0;
-const RESISTANCE_FACTOR = 0.3; // smaller number means you have to drag further to open/close and vice versa
+const RESISTANCE_FACTOR = 1; // smaller number means you have to drag further to open/close and vice versa
 
 let start_x_pos;
+let swipedIsOpen;
 
 /**
  * Initializes the starting x position because we want to calculate relative distance swiped not absolute
@@ -10,14 +11,7 @@ let start_x_pos;
  */
 function handleTouchStart(e) {
   start_x_pos = e.changedTouches[0].clientX;
-}
 
-/**
- * Checks the distance that the user has dragged finger across the screen and adjusts the
- * swipeable element's position based on that distance.
- * @param {TouchEvent} e - The touch event detected by browser
- */
-function handleTouchMove(e) {
   const CURRENT_OFFSET = Number(
     e.target
       .closest(".swipeable")
@@ -27,21 +21,32 @@ function handleTouchMove(e) {
       )
   );
 
+  swipedIsOpen = CURRENT_OFFSET === MAX_EXPANDED;
+}
+
+/**
+ * Checks the distance that the user has dragged finger across the screen and adjusts the
+ * swipeable element's position based on that distance.
+ * @param {TouchEvent} e - The touch event detected by browser
+ */
+function handleTouchMove(e) {
   const offset = Math.min(
     MIN_EXPANDED,
     Math.max(
       MAX_EXPANDED,
-      CURRENT_OFFSET +
-        (e.changedTouches[0].clientX - start_x_pos) * RESISTANCE_FACTOR
+      swipedIsOpen
+        ? MAX_EXPANDED +
+            (e.changedTouches[0].clientX - start_x_pos) * RESISTANCE_FACTOR
+        : (e.changedTouches[0].clientX - start_x_pos) * RESISTANCE_FACTOR
     )
   );
 
-  const animatedOffset =
-    easeInOutSine(Math.abs(offset / MAX_EXPANDED)) * MAX_EXPANDED;
+  console.log(offset);
 
-  e.target.closest(
-    ".swipeable"
-  ).style.transform = `translateX(${animatedOffset}px)`;
+  // const animatedOffset =
+  //   easeInOutSine(Math.abs(offset / MAX_EXPANDED)) * MAX_EXPANDED;
+
+  e.target.closest(".swipeable").style.transform = `translateX(${offset}px)`;
 }
 
 /**
