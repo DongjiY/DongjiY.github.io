@@ -1,0 +1,15 @@
+{
+  "name": "dongjiy-github-io",
+  "private": true,
+  "scripts": {
+    "build:l2-table-demo": "vite build --config demos/l2-table/vite.config.js",
+    "dev:l2-table-demo": "vite --config demos/l2-table/vite.config.js"
+  },
+  "dependencies": {
+    "@dongjiy/l2-table": "2.0.0",
+    "rxjs": "^7.8.2"
+  },
+  "devDependencies": {
+    "vite": "^7.1.0"
+  }
+}

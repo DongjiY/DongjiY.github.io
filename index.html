@@ -2,9 +2,68 @@
 <html>
   <head>
     <title>Dongji Yang</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta property="og:url" content="https://dongjiy.github.io/" />
+    <meta property="og:title" content="Dongji Yang" />
+    <meta
+      property="og:description"
+      content="A place for my thoughts, projects, and doodles."
+    />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:type" content="website" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="layout.css" />
     <link rel="stylesheet" href="style.css" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      .pigling {
+        float: right;
+        width: min(38%, 220px);
+        height: auto;
+        margin: 0 0 1rem 1.25rem;
+      }
+
+      .l2-table-demo {
+        width: 690px;
+        max-width: 100%;
+        height: 412px;
+        border: 1px solid #b8b8b8;
+        border-radius: 8px;
+        margin-top: 0.5rem;
+      }
+
+      .l2-table-mobile-message {
+        display: none;
+      }
+
+      .l2-table-disclaimer {
+        margin: 0.5rem 0 0;
+        color: #5b5b5b;
+        font-size: 0.9em;
+      }
+
+      @media (max-width: 768px) {
+        .l2-table-demo {
+          display: none;
+        }
+
+        .l2-table-mobile-message {
+          display: block;
+          margin: 1rem 0 0;
+          padding: 1rem;
+          border: 1px solid #b8b8b8;
+          border-radius: 8px;
+        }
+
+        .l2-table-disclaimer {
+          display: none;
+        }
+      }
+    </style>
   </head>
 
   <body>
@@ -12,7 +71,7 @@
       <h1 class="lora-base">A place for my thoughts</h1>
 
       <section id="blurb" class="text-base">
-        <img src="./pigling.png" class="pigling" alt="pigling" />
+        <img src="./pigling.png" class="pigling" alt="pigling" width="220" />
 
         <p>
           I remember drawing lots of doodles in my notebook during school.
@@ -27,7 +86,7 @@
 
         <p>
           As a result, I&apos;ve decided to convert this personal site into my
-          new notebook. A place to express my thoughts and share my lackluster
+          new notebook: A place to express my thoughts and share my lackluster
           art with any soul who stumbles upon this site. I hope you enjoy.
         </p>
       </section>
@@ -76,27 +135,38 @@
           a suitable candidate for displaying dense, rapidly-updating datasets.
         </p>
         <p class="text-base">
-          You can see a demo of this project <a href="">here</a>. The source
-          code can be found on my
+          The interactive demo below uses the published
+          <a href="https://www.npmjs.com/package/@dongjiy/l2-table">npm package</a>.
+          Its source code can be found on my
           <a href="https://github.com/DongjiY/l2-table">github</a>.
+        </p>
+        <p class="text-base l2-table-mobile-message">
+          The interactive L2-table demo is available on desktop screens.
+        </p>
+        <iframe
+          class="l2-table-demo"
+          src="./demos/l2-table/"
+          title="Interactive L2-table demo"
+          loading="lazy"
+        ></iframe>
+        <p class="text-base l2-table-disclaimer">
+          Demo data is mocked and does not reflect live market prices.
         </p>
       </section>
 
       <footer>
-        <div class="footer-box">
-          <h3 style="text-decoration: underline">Contact Information</h3>
-          <p>E: dongji.yang@outlook.com</p>
-          <p>
-            [In]:
-            <a href="https://www.linkedin.com/in/dongjiyang/"
-              >https://www.linkedin.com/in/dongjiyang/</a
-            >
-          </p>
-          <p>
-            Github:
-            <a href="https://github.com/DongjiY">https://github.com/DongjiY</a>
-          </p>
-        </div>
+        <h3 style="text-decoration: underline">Contact Information</h3>
+        <p>E: dongji.yang@outlook.com</p>
+        <p>
+          [In]:
+          <a href="https://www.linkedin.com/in/dongjiyang/"
+            >https://www.linkedin.com/in/dongjiyang/</a
+          >
+        </p>
+        <p>
+          Github:
+          <a href="https://github.com/DongjiY">https://github.com/DongjiY</a>
+        </p>
       </footer>
     </main>
   </body>

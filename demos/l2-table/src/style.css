@@ -1,0 +1,12 @@
+:root,
+body,
+main,
+#table-root {
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  overflow: hidden;
+}

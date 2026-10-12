@@ -1,5 +1,3 @@
-@import url("https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&display=swap");
-
 .lora-base {
   font-family: "Lora", serif;
   font-optical-sizing: auto;
@@ -10,13 +8,6 @@
 .text-base {
   font-size: 1.15rem;
   color: #262625;
-}
-
-.pigling {
-  float: right;
-  width: min(38%, 260px);
-  height: auto;
-  margin: 0 0 1rem 1.25rem; /* space below and left of image */
 }
 
 #blurb::after {
