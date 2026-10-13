@@ -113,7 +113,10 @@ const columns = [
 }));
 
 const liveValues = new Map(
-  instruments.map(([symbol, company, price, change, volume]) => [symbol, { price, change, volume }]),
+  instruments.map(([symbol, company, price, change, volume]) => [
+    symbol,
+    { price, change, volume, initialVolume: Number(volume.replace("M", "")) },
+  ]),
 );
 
 const rows = instruments.map(([symbol, company, price, change, volume]) => ({
@@ -160,7 +163,7 @@ function updateCell(symbol, columnId) {
     const change = Number(values.change.replace(/[+%]/g, "")) + drift;
     values.change = `${change >= 0 ? "+" : ""}${change.toFixed(2)}%`;
   } else {
-    const volume = Number(values.volume.replace("M", "")) * (0.98 + Math.random() * 0.05);
+    const volume = values.initialVolume * (0.94 + Math.random() * 0.12);
     values.volume = `${volume.toFixed(1)}M`;
   }
 
