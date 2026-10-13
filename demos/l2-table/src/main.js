@@ -112,9 +112,13 @@ const columns = [
   renderCell: columnId === "symbol" ? (style) => new StarSymbolCell(style) : undefined,
 }));
 
-const rows = instruments.map(([symbol, company]) => ({
+const liveValues = new Map(
+  instruments.map(([symbol, company, price, change, volume]) => [symbol, { price, change, volume }]),
+);
+
+const rows = instruments.map(([symbol, company, price, change, volume]) => ({
   rowId: symbol,
-  placeholders: { symbol, company, price: "—", change: "—", volume: "—" },
+  placeholders: { symbol, company, price, change, volume },
 }));
 
 const updates = new Subject();
@@ -145,27 +149,43 @@ const table = createTable(document.querySelector("#table-root"), {
   source: updates,
 });
 
-function publishRows() {
-  for (const [symbol, company, price, change, volume] of instruments) {
-    const drift = (Math.random() - 0.48) * 0.75;
-    const nextPrice = Number(price.replace("$", "")) * (1 + drift / 100);
-    const nextChange = Number(change.replace(/[+%]/g, "")) + drift;
-    const nextVolume = Number(volume.replace("M", "")) * (0.98 + Math.random() * 0.05);
+function updateCell(symbol, columnId) {
+  const values = liveValues.get(symbol);
+  const drift = (Math.random() - 0.48) * 0.75;
 
-    [
-      ["symbol", symbol],
-      ["company", company],
-      ["price", `$${nextPrice.toFixed(2)}`],
-      ["change", `${nextChange >= 0 ? "+" : ""}${nextChange.toFixed(2)}%`],
-      ["volume", `${nextVolume.toFixed(1)}M`],
-    ].forEach(([columnId, data]) => updates.next({ rowId: symbol, columnId, data }));
+  if (columnId === "price") {
+    const price = Number(values.price.replace("$", "")) * (1 + drift / 100);
+    values.price = `$${price.toFixed(2)}`;
+  } else if (columnId === "change") {
+    const change = Number(values.change.replace(/[+%]/g, "")) + drift;
+    values.change = `${change >= 0 ? "+" : ""}${change.toFixed(2)}%`;
+  } else {
+    const volume = Number(values.volume.replace("M", "")) * (0.98 + Math.random() * 0.05);
+    values.volume = `${volume.toFixed(1)}M`;
+  }
+
+  updates.next({ rowId: symbol, columnId, data: values[columnId] });
+}
+
+const updateTimers = new Set();
+
+function scheduleCellUpdate(symbol, columnId) {
+  const timerId = window.setTimeout(() => {
+    updateTimers.delete(timerId);
+    updateCell(symbol, columnId);
+    scheduleCellUpdate(symbol, columnId);
+  }, 250 + Math.random() * 1_500);
+
+  updateTimers.add(timerId);
+}
+
+for (const [symbol] of instruments) {
+  for (const columnId of ["price", "change", "volume"]) {
+    scheduleCellUpdate(symbol, columnId);
   }
 }
 
-const intervalId = window.setInterval(publishRows, 900);
 window.addEventListener("beforeunload", () => {
-  window.clearInterval(intervalId);
+  updateTimers.forEach((timerId) => window.clearTimeout(timerId));
   table.close();
 });
-
-publishRows();

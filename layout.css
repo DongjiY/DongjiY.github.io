@@ -25,6 +25,7 @@ body {
 
 footer {
   margin-top: 2rem;
+  margin-bottom: 2rem;
   border: 1px solid black;
   padding-inline: 12px;
 }
