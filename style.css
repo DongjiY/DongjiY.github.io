@@ -15,3 +15,12 @@
   display: block;
   clear: both;
 }
+
+.l2-table-demo {
+  width: 690px;
+  max-width: 100%;
+  height: 412px;
+  border: 1px solid #b8b8b8;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+}

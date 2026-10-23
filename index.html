@@ -26,43 +26,6 @@
         height: auto;
         margin: 0 0 1rem 1.25rem;
       }
-
-      .l2-table-demo {
-        width: 690px;
-        max-width: 100%;
-        height: 412px;
-        border: 1px solid #b8b8b8;
-        border-radius: 8px;
-        margin-top: 0.5rem;
-      }
-
-      .l2-table-mobile-message {
-        display: none;
-      }
-
-      .l2-table-disclaimer {
-        margin: 0.5rem 0 0;
-        color: #5b5b5b;
-        font-size: 0.9em;
-      }
-
-      @media (max-width: 768px) {
-        .l2-table-demo {
-          display: none;
-        }
-
-        .l2-table-mobile-message {
-          display: block;
-          margin: 1rem 0 0;
-          padding: 1rem;
-          border: 1px solid #b8b8b8;
-          border-radius: 8px;
-        }
-
-        .l2-table-disclaimer {
-          display: none;
-        }
-      }
     </style>
   </head>
 
@@ -136,12 +99,10 @@
         </p>
         <p class="text-base">
           The interactive demo below uses the published
-          <a href="https://www.npmjs.com/package/@dongjiy/l2-table">npm package</a>.
-          Its source code can be found on my
+          <a href="https://www.npmjs.com/package/@dongjiy/l2-table"
+            >npm package</a
+          >. Its source code can be found on my
           <a href="https://github.com/DongjiY/l2-table">github</a>.
-        </p>
-        <p class="text-base l2-table-mobile-message">
-          The interactive L2-table demo is available on desktop screens.
         </p>
         <iframe
           class="l2-table-demo"
@@ -149,9 +110,7 @@
           title="Interactive L2-table demo"
           loading="lazy"
         ></iframe>
-        <p class="text-base l2-table-disclaimer">
-          Demo data is mocked and does not reflect live market prices.
-        </p>
+        <p class="text-base">*Table displays mocked data</p>
       </section>
 
       <footer>
