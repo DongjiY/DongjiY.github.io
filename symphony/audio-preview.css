@@ -1,3 +1,8 @@
+:host {
+  display: block;
+  min-width: 0;
+}
+
 .play-button {
   position: relative;
   padding: 0.4rem 0.75rem;
@@ -42,13 +47,29 @@
   }
 }
 
+.progress-controls {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 0.5rem;
+  margin-top: 0.5rem;
+}
+
 .progress-bar {
+  flex: 0 0 8rem;
   width: 8rem;
   height: 0.25rem;
-  margin-top: 0.5rem;
   overflow: hidden;
   border-radius: 999px;
   background: #d9d9d9;
+}
+
+.duration {
+  font-size: 0.75rem;
+  font-family:
+    ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono",
+    "Courier New", monospace;
+  font-variant-numeric: tabular-nums;
 }
 
 .progress {

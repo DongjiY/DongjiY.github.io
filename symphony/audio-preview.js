@@ -42,6 +42,18 @@ function parseTimestamp(timestamp) {
   return hours * 60 * 60 + minutes * 60 + seconds;
 }
 
+function formatDuration(seconds) {
+  const totalSeconds = Math.max(0, Math.ceil(seconds));
+  const hours = Math.floor(totalSeconds / 3600);
+  const minutes = Math.floor((totalSeconds % 3600) / 60);
+  const remainingSeconds = totalSeconds % 60;
+  const paddedSeconds = String(remainingSeconds).padStart(2, "0");
+
+  return hours
+    ? `${hours}:${String(minutes).padStart(2, "0")}:${paddedSeconds}`
+    : `${minutes}:${paddedSeconds}`;
+}
+
 function loadYoutubeApi() {
   if (window.YT?.Player) return Promise.resolve(window.YT);
   if (youtubeApiPromise) return youtubeApiPromise;
@@ -165,9 +177,25 @@ class AudioPreview extends HTMLElement {
     progress.className = "progress";
     progressBar.append(progress);
 
-    this.#elements = { youtubeEmbed, playButton, label, progressBar, progress };
+    const duration = document.createElement("span");
+    duration.className = "duration";
+    duration.setAttribute("aria-hidden", "true");
+    duration.textContent = formatDuration(this.#end - this.#start);
+
+    const progressControls = document.createElement("div");
+    progressControls.className = "progress-controls";
+    progressControls.append(progressBar, duration);
+
+    this.#elements = {
+      youtubeEmbed,
+      playButton,
+      label,
+      progressBar,
+      progress,
+      duration,
+    };
     this.#setButtonIcon("play");
-    shadow.append(stylesheet, youtubeEmbed, playButton, label, progressBar);
+    shadow.append(stylesheet, youtubeEmbed, playButton, label, progressControls);
 
     loadYoutubeApi()
       .then((YT) => {
@@ -285,10 +313,16 @@ class AudioPreview extends HTMLElement {
       100,
       Math.max(0, ((currentTime - this.#start) / duration) * 100),
     );
+    const remainingDuration = formatDuration(this.#end - currentTime);
     this.#elements.progress.style.width = `${percent}%`;
+    this.#elements.duration.textContent = remainingDuration;
     this.#elements.progressBar.setAttribute(
       "aria-valuenow",
       String(Math.round(percent)),
+    );
+    this.#elements.progressBar.setAttribute(
+      "aria-valuetext",
+      `${remainingDuration} remaining`,
     );
 
     if (this.#attributes.end && currentTime >= this.#end) {
