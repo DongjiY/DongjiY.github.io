@@ -22,10 +22,13 @@ build:
 	cp index.html layout.css style.css pigling.png $(SITE_DIR)/
 	cp -R demos/swipe $(SITE_DIR)/demos/swipe
 	cp -R demos/l2-table/dist $(SITE_DIR)/demos/l2-table
+	rsync -a --exclude='/concert/template.html' symphony/ $(SITE_DIR)/symphony/
 	touch $(SITE_DIR)/.nojekyll
 
 preview: build
-	python3 -m http.server $(PORT) --directory $(SITE_DIR)
+	npx concurrently --kill-others-on-fail \
+		"npm run watch:site" \
+		"npx vite --host 127.0.0.1 --port $(PORT) $(SITE_DIR)"
 
 clean:
 	rm -rf $(SITE_DIR)

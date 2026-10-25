@@ -1,0 +1,53 @@
+.content {
+  padding-bottom: 36px;
+}
+
+.lora-base {
+  font-family: "Lora", serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.text-base {
+  font-size: 1.15rem;
+  color: #262625;
+}
+
+table {
+  border-collapse: collapse;
+  border: 2px solid rgb(140 140 140);
+}
+
+th,
+td {
+  border: 1px solid rgb(160 160 160);
+  padding: 8px 10px;
+}
+
+.breadcrumb {
+  padding-top: 16px;
+  padding-bottom: 6px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 4px;
+  position: sticky;
+  top: 0;
+  background: white;
+}
+
+.breadcrumb p {
+  flex: 1 1 auto;
+  min-width: 0;
+  margin: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.snippets {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}

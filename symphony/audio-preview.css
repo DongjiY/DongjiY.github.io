@@ -1,0 +1,67 @@
+.youtube-embed {
+  position: fixed;
+  width: 200px;
+  height: 200px;
+  opacity: 0;
+  pointer-events: none;
+  border: 0;
+}
+
+.play-button {
+  position: relative;
+  padding: 0.4rem 0.75rem;
+  border: 0;
+  background: #262625;
+  color: white;
+  cursor: pointer;
+}
+
+.play-button svg {
+  display: block;
+  width: 1rem;
+  height: 1rem;
+}
+
+.audio-label {
+  margin-left: 0.5rem;
+}
+
+.play-button.is-loading {
+  color: transparent;
+  cursor: wait;
+}
+
+.play-button.is-loading::after {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 0.8rem;
+  height: 0.8rem;
+  border: 2px solid white;
+  border-right-color: transparent;
+  border-radius: 50%;
+  content: "";
+  transform: translate(-50%, -50%);
+  animation: audio-preview-spin 0.7s linear infinite;
+}
+
+@keyframes audio-preview-spin {
+  to {
+    transform: translate(-50%, -50%) rotate(1turn);
+  }
+}
+
+.progress-bar {
+  width: 8rem;
+  height: 0.25rem;
+  margin-top: 0.5rem;
+  overflow: hidden;
+  border-radius: 999px;
+  background: #d9d9d9;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background: #262625;
+}
