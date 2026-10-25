@@ -113,7 +113,7 @@ class AudioPreview extends HTMLElement {
   get #end() {
     return this.#attributes.end
       ? parseTimestamp(this.#attributes.end)
-      : this.#player?.getDuration() ?? 0;
+      : (this.#player?.getDuration() ?? 0);
   }
 
   connectedCallback() {
@@ -226,10 +226,7 @@ class AudioPreview extends HTMLElement {
     svg.setAttribute("viewBox", "0 0 24 24");
     svg.setAttribute("aria-hidden", "true");
 
-    const path = document.createElementNS(
-      "http://www.w3.org/2000/svg",
-      "path",
-    );
+    const path = document.createElementNS("http://www.w3.org/2000/svg", "path");
     path.setAttribute(
       "d",
       icon === "pause" ? "M6 5h4v14H6zm8 0h4v14h-4z" : "M8 5v14l11-7z",
