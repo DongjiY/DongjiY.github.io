@@ -127,6 +127,14 @@ class AudioPreview extends HTMLElement {
     youtubeEmbed.className = "youtube-embed";
     youtubeEmbed.width = 200;
     youtubeEmbed.height = 200;
+    Object.assign(youtubeEmbed.style, {
+      position: "fixed",
+      width: "200px",
+      height: "200px",
+      opacity: "0",
+      pointerEvents: "none",
+      border: "0",
+    });
     youtubeEmbed.title = "YouTube audio player";
     youtubeEmbed.allow =
       "accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share";
