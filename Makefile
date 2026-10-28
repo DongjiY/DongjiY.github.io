@@ -24,6 +24,7 @@ build:
 	cp -R demos/l2-table/dist $(SITE_DIR)/demos/l2-table
 	rsync -a --exclude='/concert/template.html' symphony/ $(SITE_DIR)/symphony/
 	touch $(SITE_DIR)/.nojekyll
+	node scripts/inject-tracking.mjs $(SITE_DIR)
 
 preview: build
 	npx concurrently --kill-others-on-fail \

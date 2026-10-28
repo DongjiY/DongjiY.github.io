@@ -24,14 +24,7 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
-      - run: npm run build:l2-table-demo
-      - run: |
-          mkdir -p _site/demos
-          cp index.html layout.css style.css pigling.png _site/
-          cp -R demos/swipe _site/demos/swipe
-          cp -R demos/l2-table/dist _site/demos/l2-table
-          rsync -a --exclude='/concert/template.html' symphony/ _site/symphony/
-          touch _site/.nojekyll
+      - run: make build
       - uses: actions/upload-pages-artifact@v3
         with:
           path: _site
