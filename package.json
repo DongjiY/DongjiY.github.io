@@ -7,7 +7,7 @@
     "watch:site": "chokidar 'index.html' 'layout.css' 'style.css' 'pigling.png' 'demos/swipe/**/*' 'demos/l2-table/**/*' 'symphony/**/*' --ignore 'demos/l2-table/dist/**' -c 'make build'"
   },
   "dependencies": {
-    "@dongjiy/l2-table": "^2.1.3",
+    "@dongjiy/l2-table": "^2.1.4",
     "rxjs": "^7.8.2"
   },
   "devDependencies": {
